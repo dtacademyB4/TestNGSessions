@@ -2,9 +2,19 @@
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
 <suite name="Automation Tests Suite">
     <test  name="UI Tests">
+
+        <groups>
+            <run>
+                <include name="smoke"></include>
+
+            </run>
+
+        </groups>
+
+
         <packages>
-            <package name="testPackage"></package>
-            <package name="uiTests"></package>
+
+            <package name=".*"></package>
 
         </packages>
 

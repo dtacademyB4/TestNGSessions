@@ -18,7 +18,7 @@ public class TestNGDemo {
 
 
     @Test
-    public void test1(){
+    public void _UI(){
 
         // Go to google.com
 

@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="Automation Tests Suite">
+    <test  name="UI Tests">
+
+        <classes>
+<!--    class names always should come with package name        -->
+            <class name="uiTests.LoginTests"></class>
+            <class name="uiTests.ExecutionOrder"></class>
+
+        </classes>
+
+    </test>
+</suite>

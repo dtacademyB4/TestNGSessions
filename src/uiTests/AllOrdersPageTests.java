@@ -1,4 +1,4 @@
-package UITests;
+package uiTests;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
@@ -16,7 +16,7 @@ public class AllOrdersPageTests {
 
     WebDriver driver;
 
-    @BeforeMethod
+    @BeforeMethod (alwaysRun = true) // always run will make sure that before or after methods will run even with groups
     public void setup(){  // setup actions are preparing the driver and logging in to the app
         System.setProperty("webdriver.chrome.driver", "C:\\Users\\Nuclues\\Documents\\Selenium\\drivers\\chromedriver.exe");
         driver = new ChromeDriver();
@@ -29,12 +29,12 @@ public class AllOrdersPageTests {
 
     }
 
-    @AfterMethod
+    @AfterMethod (alwaysRun = true)
     public void tearDown(){
         driver.quit();
     }
 
-    @Test
+    @Test (groups = "smoke")
 //    @Ignore  prevent this method from running
     public void verifyCheckAllButton(){
         // Click on select all
@@ -54,7 +54,7 @@ public class AllOrdersPageTests {
     }
 
     @Test
-    public void verifyUncheckAllButton(){
+    public void verifyUncheckAllButton_UI(){
         // Get all checkboxes
 
 
@@ -93,7 +93,7 @@ public class AllOrdersPageTests {
         Assert.assertTrue(driver.findElement(By.id("ctl00_MainContent_orderMessage")).getText().contains(expected));
     }
 
-    @Test
+    @Test (groups = "smoke")
     public void verifyDeleteSelectedButtonOne(){
         // First grab all checkboxes into a list
 

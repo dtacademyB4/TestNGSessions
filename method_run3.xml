@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="Automation Tests Suite">
+    <test  name="UI Tests">
+
+        <classes>
+
+            <class name="uiTests.LoginTests">
+               <methods>
+                  <include name="negativeTest" />
+               </methods>
+            </class>
+
+            <class name="uiTests.AllOrdersPageTests">
+                <methods>
+                    <include name="verifyCheckAllButton" />
+                </methods>
+            </class>
+
+            <class name="testPackage.TestNGDemo">
+                <methods>
+                    <include name="test1" />
+                </methods>
+            </class>
+
+        </classes>
+
+    </test>
+</suite>

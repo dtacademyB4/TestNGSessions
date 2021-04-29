@@ -1,4 +1,4 @@
-package UITests;
+package uiTests;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
@@ -14,14 +14,14 @@ public class LoginTests {
 
     WebDriver driver;
 
-    @BeforeClass  // this method will run only once before everything else in this class
+    @BeforeClass (alwaysRun = true)   // this method will run only once before everything else in this class
                   /// any logic that you must execute only once before everything in the class
     public void setUpClass(){
         System.setProperty("webdriver.chrome.driver", "C:\\Users\\Nuclues\\Documents\\Selenium\\drivers\\chromedriver.exe");
 
     }
 
-    @BeforeMethod  //   // this method will run  before each @Test method this class
+    @BeforeMethod (alwaysRun = true)   //   // this method will run  before each @Test method this class
     public void setUpMethod(){
         driver = new ChromeDriver();
         driver.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
@@ -31,7 +31,7 @@ public class LoginTests {
 
 
 
-    @Test
+    @Test (groups = {"smoke", "login"})
     public void positiveLogin(){
 
         // Enter the correct credentials
@@ -45,7 +45,7 @@ public class LoginTests {
 
     }
 
-    @Test
+    @Test (groups = { "login"})
     public void negativeTest(){
        // Enter the incorrect credentials
         driver.findElement(By.id("ctl00_MainContent_username")).sendKeys("Hello");
@@ -59,8 +59,8 @@ public class LoginTests {
     }
 
 
-    @Test
-    public void negativeTest2(){
+    @Test (groups = { "login"})
+    public void negativeTest2_UI(){
    // Enter the correct username and incorrect password
         driver.findElement(By.id("ctl00_MainContent_username")).sendKeys("Tester");
         driver.findElement(By.id("ctl00_MainContent_password")).sendKeys("world");
@@ -74,7 +74,7 @@ public class LoginTests {
 
     }
 
-    @Test
+    @Test (groups = {"smoke", "login"})
     public void negativeTest3(){
         // Omit the credentials
         driver.findElement(By.id("ctl00_MainContent_login_button")).click();
@@ -87,12 +87,12 @@ public class LoginTests {
 
 
 
-    @AfterClass //this method will run only once after all @Test methods have finished executing
+    @AfterClass (alwaysRun = true) //this method will run only once after all @Test methods have finished executing
     public void tearDownClass(){
 
     }
 
-    @AfterMethod // // this method will run  after each @Test method this class
+    @AfterMethod (alwaysRun = true) // // this method will run  after each @Test method this class
     public void tearDownMethod(){
         driver.quit();
     }
