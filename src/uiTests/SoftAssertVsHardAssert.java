@@ -20,7 +20,7 @@ public class SoftAssertVsHardAssert {
 
     @BeforeMethod
     public void setup(){  // setup actions are preparing the driver and logging in to the app
-        System.setProperty("webdriver.chrome.driver", "C:\\Users\\Nuclues\\Documents\\Selenium\\drivers\\chromedriver.exe");
+        System.setProperty("webdriver.chrome.driver", "/Users/duotech/Documents/drivers/chromedriver");
         driver = new ChromeDriver();
         driver.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
         driver.manage().window().maximize();
@@ -94,6 +94,35 @@ public class SoftAssertVsHardAssert {
 
 
     }
+
+
+
+    @Test
+
+    public void sofAssertDemo(){
+        SoftAssert sa = new SoftAssert(); // Create an object of SoftAssert class
+
+
+        sa.assertTrue(true);
+        System.out.println("First");
+        sa.assertTrue(true);
+        System.out.println("Second");
+
+        sa.assertTrue(false);  // hard assertions throw exceptions immediately
+        System.out.println("Third");
+        sa.assertTrue(true);
+        System.out.println("Fourth");
+
+        sa.assertAll(); // we need to use this method with SofAssert class to check if there is an exception
+
+
+
+
+
+
+    }
+
+
 
 
 

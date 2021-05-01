@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="Automation Tests Suite">
+    <test  name="UI Tests">
+
+        <parameter name="url" value="http://secure.smartbearsoftware.com/samples/TestComplete12/WebOrders/Login.aspx"></parameter>
+        <parameter name="username" value="Tester"></parameter>
+        <parameter name="password" value="test"></parameter>
+
+
+        <classes>
+<!--    class names always should come with package name        -->
+            <class name="uiTests.ParametrizedTests">
+               <methods>
+                  <include name="positiveLogin" />
+               </methods>
+            </class>
+        </classes>
+
+    </test>
+</suite>
